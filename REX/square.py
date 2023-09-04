@@ -12,36 +12,20 @@ print("Running ...")
 # send a go_diff command to drive forward
 leftSpeed = 64
 rightSpeed = 64
-print(arlo.go_diff(leftSpeed, rightSpeed, 1, 1))
 
-# Wait a bit while robot moves forward
-sleep(2.5)
+for i in range(3):
+    # 1m forward
+    print(arlo.go_diff(leftSpeed, rightSpeed, 1, 1))
+    sleep(2.5)
+    print(arlo.stop())
+    sleep(0.041)
 
-# send a stop command
-print(arlo.stop())
+    # rotate 90 degrees
+    print(arlo.go_diff(leftSpeed, rightSpeed, 0,1))
+    sleep(0.785)# Wait a bit while robot moves backwards
+    print(arlo.stop())
+    sleep(0.041)
 
-# Wait a bit before next command
-sleep(0.041)
-
-# send a go_diff command to drive backwards the same way we came from
-print(arlo.go_diff(leftSpeed, rightSpeed, 1, 0))
-
-# Wait a bit while robot moves backwards
-sleep(0.5)
-
-# send a stop command
-print(arlo.stop())
-
-# Wait a bit before next command
-sleep(0.041)
-
-print(arlo.go_diff(leftSpeed, rightSpeed, 1, 1))
-
-# Wait a bit while robot moves forward
-sleep(2.5)
-
-# send a stop command
-print(arlo.stop())
 
 
 
