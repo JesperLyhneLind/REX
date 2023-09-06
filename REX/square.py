@@ -16,7 +16,7 @@ rightSpeed = 64
 for i in range(4):
     # 1m forward
     print(arlo.go_diff(leftSpeed, rightSpeed, 1, 1))
-    sleep(2.5)
+    sleep(2.2)
     print(arlo.stop())
     sleep(0.041)
 
