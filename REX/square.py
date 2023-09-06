@@ -11,7 +11,7 @@ print("Running ...")
 
 # send a go_diff command to drive forward
 leftSpeed = 64
-rightSpeed = 67
+rightSpeed = 64
 
 for i in range(12):
     # 1m forward
