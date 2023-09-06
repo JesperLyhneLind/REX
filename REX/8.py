@@ -16,9 +16,9 @@ for i in range(4):
 
     # rotate 90 degrees
     print(arlo.go_diff(0, 41, 1,1))
-    sleep(5.6)# Wait a bit while robot moves backwards
+    sleep(7)# Wait a bit while robot moves backwards
     print(arlo.go_diff(41, 0, 1,1))
-    sleep(5.6)
+    sleep(7)
 
 
 
