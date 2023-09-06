@@ -13,22 +13,22 @@ print("Running ...")
 
 for i in range(4):
     
-    leftSpeed = 54
-    rightSpeed = 54
-    # 1m forward
-   # print(arlo.go_diff(leftSpeed, rightSpeed, 1, 1))
-   # sleep(2)
-   # print(arlo.stop())
-   # sleep(0.041)
+    leftSpeed = 64
+    rightSpeed = 64.5
+    #1m forward
+    print(arlo.go_diff(leftSpeed, rightSpeed, 1, 1))
+    sleep(2.55)
+    print(arlo.stop())
+    sleep(0.041)
 
-    leftSpeed = 40.5
-    rightSpeed = 40.5
+    leftSpeed = 41
+    rightSpeed = 41
 
     # rotate 90 degrees
     print(arlo.go_diff(leftSpeed, rightSpeed, 0,1))
-    sleep(0.4)# Wait a bit while robot moves backwards
+    sleep(1.4)# Wait a bit while robot moves backwards
     print(arlo.stop())
-    sleep(0.041)
+    sleep(2.141)
 
 
 
