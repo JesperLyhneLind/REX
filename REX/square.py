@@ -11,12 +11,12 @@ print("Running ...")
 
 # send a go_diff command to drive forward
 leftSpeed = 64
-rightSpeed = 64
+rightSpeed = 67
 
 for i in range(4):
     # 1m forward
     print(arlo.go_diff(leftSpeed, rightSpeed, 1, 1))
-    sleep(2.2)
+    sleep(2.45)
     print(arlo.stop())
     sleep(0.041)
 
