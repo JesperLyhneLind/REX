@@ -34,4 +34,4 @@ def drive():
         print(arlo.stop())
         sleep(0.041)
     
-        
+drive()       
