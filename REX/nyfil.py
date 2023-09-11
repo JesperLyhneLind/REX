@@ -16,9 +16,9 @@ def check():
         Left_sensor = arlo.read_left_ping_sensor()
 
         if Left_sensor < 200 or Right_sensor < 200 or Front_sensor < 250:
-            print("Left: " + Left_sensor)
-            print("Front: " + Front_sensor)
-            print("Right: " + Right_sensor)
+            print("Left: " + str(Left_sensor))
+            print("Front: " + str(Front_sensor))
+            print("Right: " + str(Right_sensor))
             print(arlo.stop())
             return
 
