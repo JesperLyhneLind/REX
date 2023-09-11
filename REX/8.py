@@ -13,13 +13,16 @@ print("Running ...")
 
 for i in range(1):
     
-
+    speed = 53
     # rotate 90 degrees
-    print(arlo.go_diff(0, 41, 1,1))
-    sleep(7)# Wait a bit while robot moves backwards
-    # print(arlo.go_diff(41, 0, 1,1))
-    # sleep(7)
+    print(arlo.go_diff(speed1, 0, 0, 0))
+    sleep(4)
+    print(arlo.go_diff(speed, 0, 0, 0))
+    sleep(4)
 
 
 
 print("Finished")
+
+
+
