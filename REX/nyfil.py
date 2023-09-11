@@ -4,7 +4,6 @@ import robot
 
 arlo = robot.Robot()
 
-sleep(1)
 def check():
     while(True):
         Front_sensor = arlo.read_front_ping_sensor()
@@ -45,4 +44,4 @@ def drive():
         pass
     drive()
 
-drive()       
+drive()        
