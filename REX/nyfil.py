@@ -5,9 +5,9 @@ import robot
 arlo = robot.Robot()
 
 sleep(1)
-global Front_sensor
-global Right_sensor
-global Left_sensor
+Front_sensor = 0
+Right_sensor = 0
+Left_sensor = 0
 
 def check():
     while(True):
