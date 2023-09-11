@@ -16,7 +16,7 @@ def check():
             print("Front: " + str(Front_sensor))
             print("Right: " + str(Right_sensor))
             print(arlo.stop())
-            return Left_sensor, Right_sensor, Front_sensor
+            return Left_sensor, Right_sensor
         
 
 
