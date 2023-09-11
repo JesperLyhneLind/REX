@@ -31,11 +31,13 @@ def drive():
         sleep(0.7)# Wait a little bit while robot moves backwards
         print(arlo.stop())
         sleep(0.041)
-    elif Left_sensor < Right_sensor:
+        print("Left")
+    elif Right_sensor > Left_sensor:
         print(arlo.go_diff(41, 41, 1, 0))
         sleep(0.7)# Wait a bit while robot moves backwards
         print(arlo.stop())
         sleep(0.041)
+        print("Right")
     else:
         pass
     drive()
