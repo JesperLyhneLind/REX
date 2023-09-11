@@ -22,13 +22,13 @@ def check():
 
 def drive(): 
     arlo.go_diff(50, 50, 1, 1)
-    Left_sensor, Right_sensor, Front_sensor = check()
+    Left_sensor, Right_sensor = check()
     if Left_sensor >= Right_sensor:
         print("\n")
         print("LEFT_SENSOR: " + str(Left_sensor))
         print("RIGHT_SENSOR: " + str(Right_sensor))
-        print(arlo.go_diff(41, 41, 0, 1))
-        sleep(0.7)# Wait a little bit while robot moves backwards
+        print(arlo.go_diff(30, 30, 0, 1))
+        sleep(0.7)
         print(arlo.stop())
         print("Left")
         sleep(0.041)
@@ -36,8 +36,8 @@ def drive():
         print("\n")
         print("LEFT_SENSOR: " + str(Left_sensor))
         print("RIGHT_SENSOR: " + str(Right_sensor))
-        print(arlo.go_diff(41, 41, 1, 0))
-        sleep(0.7)# Wait a bit while robot moves backwards
+        print(arlo.go_diff(30, 30, 1, 0))
+        sleep(0.7)
         print(arlo.stop())
         print("Right")
         sleep(0.041)
