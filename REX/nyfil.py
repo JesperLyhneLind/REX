@@ -24,7 +24,7 @@ def check():
 
 
 def drive(): 
-    arlo.go_diff(20, 20, 1, 1)
+    arlo.go_diff(35, 35, 1, 1)
     check()
     if Left_sensor < Right_sensor:
         print(arlo.go_diff(41, 41, 0, 1))
