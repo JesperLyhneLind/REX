@@ -5,10 +5,6 @@ import robot
 arlo = robot.Robot()
 
 sleep(1)
-Front_sensor = 0
-Right_sensor = 0
-Left_sensor = 0
-
 def check():
     while(True):
         Front_sensor = arlo.read_front_ping_sensor()
@@ -20,12 +16,13 @@ def check():
             print("Front: " + str(Front_sensor))
             print("Right: " + str(Right_sensor))
             print(arlo.stop())
-            return
+            return Left_sensor, Right_sensor, Front_sensor
+        
 
 
 def drive(): 
     arlo.go_diff(50, 50, 1, 1)
-    check()
+    Left_sensor, Right_sensor, Front_sensor = check()
     if Left_sensor >= Right_sensor:
         print("\n")
         print("LEFT_SENSOR: " + str(Left_sensor))
