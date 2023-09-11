@@ -36,5 +36,7 @@ def drive():
         sleep(1)# Wait a bit while robot moves backwards
         print(arlo.stop())
         sleep(0.041)
+    drive()
+    
     
 drive()       
