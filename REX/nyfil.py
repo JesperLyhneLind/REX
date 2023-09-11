@@ -24,16 +24,16 @@ def check():
 
 
 def drive(): 
-    arlo.go_diff(35, 35, 1, 1)
+    arlo.go_diff(40, 40, 1, 1)
     check()
     if Left_sensor < Right_sensor:
         print(arlo.go_diff(41, 41, 0, 1))
-        sleep(0.45)# Wait a bit while robot moves backwards
+        sleep(1)# Wait a little bit while robot moves backwards
         print(arlo.stop())
         sleep(0.041)
     else:
         print(arlo.go_diff(41, 41, 1, 0))
-        sleep(0.45)# Wait a bit while robot moves backwards
+        sleep(1)# Wait a bit while robot moves backwards
         print(arlo.stop())
         sleep(0.041)
     
