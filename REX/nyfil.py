@@ -12,16 +12,19 @@ Left_sensor = arlo.read_left_ping_sensor()
 def check():
     while(True):
         Front_sensor = arlo.read_front_ping_sensor()
+        print(Front_sensor)
         Right_sensor = arlo.read_right_ping_sensor()
+        print(Right_sensor)
         Left_sensor = arlo.read_left_ping_sensor()
+        print(Left_sensor)
         
-        if Left_sensor < 150 or Right_sensor < 150 or Front_sensor < 150:
+        if Left_sensor < 250 or Right_sensor < 250 or Front_sensor < 250:
             print(arlo.stop())
-            sleep(0.45)
+            return
 
 
 def drive(): 
-    arlo.go_diff(40, 40, 1, 1)
+    arlo.go_diff(20, 20, 1, 1)
     check()
     if Left_sensor < Right_sensor:
         print(arlo.go_diff(41, 41, 0, 1))
