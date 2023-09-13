@@ -58,6 +58,7 @@ def drive():
         turn(Direction.Right, 90)
         driveM(1)
         turn(Direction.Left, 45)
+        driveM(1)
         
 
     elif Right_sensor > Left_sensor:
