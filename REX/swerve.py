@@ -71,5 +71,4 @@ def drive():
     else:
         pass 
 
-turn90(Direction.Right)
-driveM(1)
+drive()
