@@ -20,7 +20,6 @@ def check():
             print("Left: " + str(Left_sensor))
             print("Front: " + str(Front_sensor))
             print("Right: " + str(Right_sensor))
-            print(arlo.stop())
             return Left_sensor, Right_sensor
         
 # Turns the robot 90 degrees.
@@ -50,6 +49,7 @@ def driveM(meters):
 # Drives the robot and checks which direction to go for avoiding an object.
 def drive(): 
     arlo.go_diff(50, 50, 1, 1)
+    
     Left_sensor, Right_sensor = check()
 
     if Left_sensor >= Right_sensor:
@@ -57,16 +57,18 @@ def drive():
         turn90(Direction.Left)
         driveM(0.5)
         turn90(Direction.Right)
-        driveM(0.5)
+        driveM(1)
         turn90(Direction.Right)
+        driveM(0.5)
 
     elif Right_sensor > Left_sensor:
         print("Right")
         turn90(Direction.Right)
         driveM(0.5)
         turn90(Direction.Left)
-        driveM(0.5)
+        driveM(1)
         turn90(Direction.Left)
+        driveM(0.5)
     else:
         pass 
 
