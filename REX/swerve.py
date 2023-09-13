@@ -26,13 +26,13 @@ def check():
 # Turns the robot 90 degrees.
 def turn90(dir: Direction):
     if dir == Direction.Left:
-        print(arlo.go_diff(30, 30, 0, 1))
+        print(arlo.go_diff(41, 41, 0, 1))
         sleep(0.7)
         print(arlo.stop())
         sleep(0.041)
     else:
-        print(arlo.go_diff(30, 30, 1, 0))
-        sleep(0.7)
+        print(arlo.go_diff(41, 41, 1, 0))
+        sleep(0.45)
         print(arlo.stop())
         sleep(0.041)
 
@@ -51,10 +51,12 @@ def driveM(meters):
 def drive(): 
     arlo.go_diff(50, 50, 1, 1)
     Left_sensor, Right_sensor = check()
+
     if Left_sensor >= Right_sensor:
         print("left")
         turn90(Direction.Left)
         driveM(0.3)
+        check()
         turn90(Direction.Right)
         driveM(0.3)
         turn90(Direction.Left)
