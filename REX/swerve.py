@@ -49,7 +49,6 @@ def driveM(meters):
 # Drives the robot and checks which direction to go for avoiding an object.
 def drive(): 
     arlo.go_diff(50, 50, 1, 1)
-    
     Left_sensor, Right_sensor = check()
 
     if Left_sensor >= Right_sensor:
@@ -72,4 +71,4 @@ def drive():
     else:
         pass 
 
-driveM(1)
+drive()
