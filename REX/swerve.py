@@ -16,22 +16,22 @@ def check():
         Right_sensor = arlo.read_right_ping_sensor()
         Left_sensor = arlo.read_left_ping_sensor()
 
-        if Left_sensor < 200 or Right_sensor < 200 or Front_sensor < 250:
+        if Left_sensor < 300 or Right_sensor < 300 or Front_sensor < 400:
             print("Left: " + str(Left_sensor))
             print("Front: " + str(Front_sensor))
             print("Right: " + str(Right_sensor))
             return Left_sensor, Right_sensor
         
-# Turns the robot 90 degrees.
-def turn90(dir: Direction):
+# Turns the robot angle degrees.
+def turn(dir: Direction, angle: int):
     if dir == Direction.Left:
         print(arlo.go_diff(50, 50, 0, 1))
-        sleep(1)
+        sleep(angle/90)
         print(arlo.stop())
         sleep(0.041)
     else:
         print(arlo.go_diff(50, 50, 1, 0))
-        sleep(1)
+        sleep(angle/90)
         print(arlo.stop())
         sleep(0.041)
 
@@ -54,11 +54,10 @@ def drive():
     if Left_sensor >= Right_sensor:
         print("left")
         turn90(Direction.Left)
-        driveM(0.5)
-        turn90(Direction.Right)
         driveM(1)
         turn90(Direction.Right)
-        driveM(0.5)
+        driveM(1)
+        
 
     elif Right_sensor > Left_sensor:
         print("Right")
@@ -71,4 +70,4 @@ def drive():
     else:
         pass 
 
-drive()
+drive() 
