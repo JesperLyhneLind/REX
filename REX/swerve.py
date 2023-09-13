@@ -42,7 +42,7 @@ def driveM(meters):
     rightSpeed = 70
     print(arlo.go_diff(leftSpeed, rightSpeed, 1, 1))
     # Wait a bit while robot moves forward
-    sleep(1.5*meters)
+    sleep(1.7*meters)
     # send a stop command
     print(arlo.stop())   
     sleep(0.041)   
