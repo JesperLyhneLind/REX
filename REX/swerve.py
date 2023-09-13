@@ -53,20 +53,21 @@ def drive():
 
     if Left_sensor >= Right_sensor:
         print("left")
-        turn90(Direction.Left)
+        turn(Direction.Left, 45)
         driveM(1)
-        turn90(Direction.Right)
+        turn(Direction.Right, 90)
         driveM(1)
+        turn(Direction.Left, 45)
         
 
     elif Right_sensor > Left_sensor:
         print("Right")
-        turn90(Direction.Right)
-        driveM(0.5)
-        turn90(Direction.Left)
+        turn(Direction.Right)
         driveM(1)
-        turn90(Direction.Left)
-        driveM(0.5)
+        turn(Direction.Left)
+        driveM(1)
+        turn(Direction.Right)
+        driveM(1)
     else:
         pass 
 
