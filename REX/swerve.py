@@ -26,20 +26,20 @@ def check():
 # Turns the robot 90 degrees.
 def turn90(dir: Direction):
     if dir == Direction.Left:
-        print(arlo.go_diff(42, 42, 0, 1))
+        print(arlo.go_diff(43, 43, 0, 1))
         sleep(1)
         print(arlo.stop())
         sleep(0.041)
     else:
-        print(arlo.go_diff(42, 42, 1, 0))
+        print(arlo.go_diff(43, 43, 1, 0))
         sleep(1)
         print(arlo.stop())
         sleep(0.041)
 
 # Drives one meter.
 def driveM(meters):
-    leftSpeed = 64
-    rightSpeed = 64
+    leftSpeed = 70
+    rightSpeed = 70
     print(arlo.go_diff(leftSpeed, rightSpeed, 1, 1))
     # Wait a bit while robot moves forward
     sleep(1.5*meters)
