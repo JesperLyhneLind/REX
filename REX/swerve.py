@@ -27,7 +27,7 @@ def check():
 def turn90(dir: Direction):
     if dir == Direction.Left:
         print(arlo.go_diff(41, 41, 0, 1))
-        sleep(0.7)
+        sleep(0.45)
         print(arlo.stop())
         sleep(0.041)
     else:
@@ -56,7 +56,6 @@ def drive():
         print("left")
         turn90(Direction.Left)
         driveM(0.3)
-        check()
         turn90(Direction.Right)
         driveM(0.3)
         turn90(Direction.Left)
