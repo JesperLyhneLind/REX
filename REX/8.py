@@ -15,7 +15,7 @@ for i in range(1):
     
     speed = 53
     # rotate 90 degrees
-    print(arlo.go_diff(speed1, 0, 0, 0))
+    print(arlo.go_diff(speed, 0, 0, 0))
     sleep(4)
     print(arlo.go_diff(speed, 0, 0, 0))
     sleep(4)
