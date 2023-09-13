@@ -9,7 +9,7 @@ class Direction(Enum):
     Left = 1
     Right = 2
 
-# Checks if there's any object in the path of the robot & stops the robot if that's the case.    
+# Checks if there's any object in the path of the robot.  
 def check():
     while(True):
         Front_sensor = arlo.read_front_ping_sensor()
@@ -25,12 +25,12 @@ def check():
 # Turns the robot 90 degrees.
 def turn90(dir: Direction):
     if dir == Direction.Left:
-        print(arlo.go_diff(43, 43, 0, 1))
+        print(arlo.go_diff(55, 55, 0, 1))
         sleep(1)
         print(arlo.stop())
         sleep(0.041)
     else:
-        print(arlo.go_diff(43, 43, 1, 0))
+        print(arlo.go_diff(55, 55, 1, 0))
         sleep(1)
         print(arlo.stop())
         sleep(0.041)
@@ -71,4 +71,5 @@ def drive():
     else:
         pass 
 
-drive()
+turn90(Direction.Right)
+driveM(1)
