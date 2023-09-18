@@ -41,14 +41,19 @@ cv2.moveWindow(WIN_RF, 100, 100)
 
 cnt = 40
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
-    image = cam.capture_array("main")
+    retval, frameReference = cam.read() # Read frame
+
+    if not retval: # Error
+        print(" < < <  Game over!  > > > ")
+        exit(-1)
+
     # Show frames
-    cv2.imshow(WIN_RF, image)
+    cv2.imshow(WIN_RF, frameReference)
     if cv2.waitKey(4) == 32: #takes picture when pressing space
         print("pressed space")
         path = '/Pictures'
         filename = 'Pictures/' + str(cnt) + '.jpg'
-        cv2.imwrite(filename, image)
+        cv2.imwrite(filename, frameReference)
         cnt += 20
 
 
