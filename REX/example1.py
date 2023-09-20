@@ -47,8 +47,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     cv2.imshow(WIN_RF, image)
     if cv2.waitKey(4) == 32: #takes picture when pressing space
         print("pressed space")
-        path = '/Pictures'
-        filename = 'Pictures/' + str(cnt) + '.jpg'
+        filename = '.' + str(cnt) + '.jpg'
         cv2.imwrite(filename, image)
 
 # Finished successfully
