@@ -42,6 +42,7 @@ WIN_RF = "Example 1"
 
 cnt = 100
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
+    print('test')
     image = cam.capture_array("main")
     # Show frames
     # cv2.imshow(WIN_RF, image)
