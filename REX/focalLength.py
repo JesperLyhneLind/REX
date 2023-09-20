@@ -39,22 +39,27 @@ cv2.moveWindow(WIN_RF, 100, 100)
     # Show frames
 #    cv2.imshow(WIN_RF, frameReference)
 
-cnt = 40
+cnt = 40.0
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
     retval, frameReference = cam.read() # Read frame
 
     if not retval: # Error
-        print(" < < <  Game over!  > > > ")
+        print("):< ):< ):< Error >:( >:( >:(")
         exit(-1)
 
     # Show frames
     cv2.imshow(WIN_RF, frameReference)
-    if cv2.waitKey(4) == 32: #takes picture when pressing space
+    if cv2.waitKey(4) == 32: # Takes picture when pressing space
         print("pressed space")
         path = '../REX/REX/pictures'
         filename = 'pictures/' + str(cnt) + '.jpg'
-        cv2.imwrite(filename, frameReference)
-        cnt += 20
+        cv2.imwrite(filename, frameReference) # Saving the image
+        print("The image saved succesfully: " + cv2.imwrite(filename, frameReference))
+        print(" ")
+        print("After saving image:")  
+        print(os.listdir(directory))
+        cnt += 0.1
+        #cnt += 20
 
 
 # Finished successfully
