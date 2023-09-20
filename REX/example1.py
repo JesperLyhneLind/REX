@@ -41,14 +41,13 @@ WIN_RF = "Example 1"
 
 
 cnt = 100
-while True:
+while cv2.waitKey(4) == -1:
     print('test')
     text = input('')
     image = cam.capture_array("main")
     # Show frames
     # cv2.imshow(WIN_RF, image)
     if text == ' ': #takes picture when pressing space
-    
         print("pressed space")
         filename = 'Pictures/' + str(cnt) + '.jpg'
         cnt = cnt+1
