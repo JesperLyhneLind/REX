@@ -42,7 +42,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     #     exit(-1)
 
     # Show frames
-    cv2.imshow(WIN_RF, frameReference)
+    cv2.imshow(WIN_RF, image)
 
 aruco_type = aruco.DICT_6X6_250
 id = 3
