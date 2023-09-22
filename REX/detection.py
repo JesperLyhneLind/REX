@@ -26,11 +26,23 @@ picam2_config = cam.create_video_configuration({"size": imageSize, "format": 'RG
 cam.configure(picam2_config) # Not really necessary
 cam.start(show_preview=False)
 
-print(cam.camera_configuration()) # Print the camera configuration in use
+# print(cam.camera_configuration()) # Print the camera configuration in use
 
 time.sleep(1)  # wait for camera to setup
 
 WIN_RF = "Ottos camera"
+cv2.namedWindow(WIN_RF)
+cv2.moveWindow(WIN_RF, 100, 100)
+
+while cv2.waitKey(4) == -1: # Wait for a key pressed event
+    retval, frameReference = cam.read() # Read frame
+
+    if not retval: # Error
+        print("):< ):< ):< Error >:( >:( >:(")
+        exit(-1)
+
+    # Show frames
+    cv2.imshow(WIN_RF, frameReference)
 
 aruco_type = aruco.DICT_6X6_250
 id = 3
@@ -43,9 +55,10 @@ aruco.drawMarker(aruco_dict, id, tag_size, tag, 1)
 
 tag_name = "arucoMarkers/" + str(aruco_type) + "_" + str(id) + ".png"
 cv2.imwrite(tag_name, tag)
-params = cv2.aruco.DetectorParameters_create
-# corners, ids, rejected = aruco.detectMarkers(cam.capture_array("main"), aruco_dict, params)
-print(aruco.detectMarkers(cam.capture_array("main"), aruco_dict, params))
+# image = "./Picture/100.png"
+# params = cv2.aruco.DetectorParameters_create
+# # corners, ids, rejected = aruco.detectMarkers(cam.capture_array("main"), aruco_dict, params)
+# print(aruco.detectMarkers(image, aruco_dict, params))
 
 #cv2.imshow("ArUCo Tag", tag)
 
