@@ -35,7 +35,7 @@ cv2.namedWindow(WIN_RF)
 cv2.moveWindow(WIN_RF, 100, 100)
 
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
-    retval, frameReference = cam.read() # Read frame
+    image = cam.capture_array("main") # Read frame
 
     if not retval: # Error
         print("):< ):< ):< Error >:( >:( >:(")
