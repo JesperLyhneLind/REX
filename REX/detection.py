@@ -5,6 +5,12 @@ from cv2 import aruco
 #import matplotlib as mpl
 #import pandas as pd
 
+try:
+    import picamera2
+    print("Camera.py: Using picamera2 module")
+except ImportError:
+    print("Camera.py: picamera2 module not available")
+    exit(-1)
 
 aruco_type = aruco.DICT_6X6_250
 id = 3
