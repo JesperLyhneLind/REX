@@ -12,6 +12,22 @@ except ImportError:
     print("Camera.py: picamera2 module not available")
     exit(-1)
 
+# Open a camera device for capturing
+imageSize = (1280, 720)
+FPS = 30
+cam = picamera2.Picamera2()
+frame_duration_limit = int(1/FPS * 1000000) # Microseconds
+# Change configuration to set resolution, framerate
+picam2_config = cam.create_video_configuration({"size": imageSize, "format": 'RGB888'},
+                                                            controls={"FrameDurationLimits": (frame_duration_limit, frame_duration_limit)},
+                                                            queue=False)
+cam.configure(picam2_config) # Not really necessary
+cam.start(show_preview=False)
+
+pprint(cam.camera_configuration()) # Print the camera configuration in use
+
+time.sleep(1)  # wait for camera to setup
+
 aruco_type = aruco.DICT_6X6_250
 id = 3
 aruco_dict = aruco.Dictionary_get(aruco_type)
@@ -23,11 +39,11 @@ aruco.drawMarker(aruco_dict, id, tag_size, tag, 1)
 
 tag_name = "arucoMarkers/" + str(aruco_type) + "_" + str(id) + ".png"
 cv2.imwrite(tag_name, tag)
-cv2.imshow("ArUCo Tag", tag)
+#cv2.imshow("ArUCo Tag", tag)
 
-cv2.waitKey(0)
+#cv2.waitKey(0)
 
-cv2.destroyAllWindows()
+#cv2.destroyAllWindows()
 
 #fig = plt.figure()
 #nx = 4
