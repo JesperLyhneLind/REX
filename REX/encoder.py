@@ -1,6 +1,7 @@
 import time
 from time import sleep
 import robot
+
 # Create a robot object and initialize
 arlo = robot.Robot()
 sleep(1)
