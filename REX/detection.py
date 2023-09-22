@@ -59,7 +59,7 @@ cv2.imwrite(tag_name, tag)
 # image = "./Picture/100.png"
 params = cv2.aruco.DetectorParameters_create
 # # corners, ids, rejected = aruco.detectMarkers(cam.capture_array("main"), aruco_dict, params)
-print(aruco.detectMarkers(image, aruco_dict, params))
+print(aruco.detectMarkers(image[1], aruco_dict, params))
 # cv2.imshow("ArUCo Tag", tag)
 
 #cv2.waitKey(0)
