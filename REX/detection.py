@@ -15,7 +15,7 @@ except ImportError:
     exit(-1)
 
 # Open a camera device for capturing
-imageSize = (1280, 720)
+imageSize = (320, 320)
 FPS = 30
 cam = picamera2.Picamera2()
 frame_duration_limit = int(1/FPS * 1000000) # Microseconds
