@@ -1,6 +1,7 @@
 import numpy as np
 import cv2, PIL
 from cv2 import aruco
+import time
 #import matplotlib.pyplot as plt
 #import matplotlib as mpl
 #import pandas as pd
@@ -24,9 +25,19 @@ picam2_config = cam.create_video_configuration({"size": imageSize, "format": 'RG
 cam.configure(picam2_config) # Not really necessary
 cam.start(show_preview=False)
 
-pprint(cam.camera_configuration()) # Print the camera configuration in use
+print(cam.camera_configuration()) # Print the camera configuration in use
 
 time.sleep(1)  # wait for camera to setup
+
+# Open a window
+WIN_RF = "Example 1"
+
+while cv2.waitKey(4) == -1:
+    image = cam.capture_array("main")
+    # Show frames
+    cv2.imshow(WIN_RF, image)
+    if text == 'q':
+        break
 
 aruco_type = aruco.DICT_6X6_250
 id = 3
