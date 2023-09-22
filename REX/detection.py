@@ -15,7 +15,7 @@ except ImportError:
     exit(-1)
 
 # Open a camera device for capturing
-imageSize = (320, 320)
+imageSize = (1280, 720)
 FPS = 30
 cam = picamera2.Picamera2()
 frame_duration_limit = int(1/FPS * 1000000) # Microseconds
@@ -34,16 +34,15 @@ WIN_RF = "Ottos camera"
 cv2.namedWindow(WIN_RF)
 cv2.moveWindow(WIN_RF, 100, 100)
 
-# while cv2.waitKey(4) == -1: # Wait for a key pressed event
-image = cam.capture_array("main") # Read frame
+while cv2.waitKey(4) == -1: # Wait for a key pressed event
+    retval, frameReference = cam.read() # Read frame
 
-    # if not retval: # Error
-    #     print("):< ):< ):< Error >:( >:( >:(")
-    #     exit(-1)
+    if not retval: # Error
+        print("):< ):< ):< Error >:( >:( >:(")
+        exit(-1)
 
     # Show frames
-    # cv2.imshow(WIN_RF, image)
-
+    cv2.imshow(WIN_RF, frameReference)
 
 aruco_type = aruco.DICT_6X6_250
 id = 3
@@ -57,10 +56,11 @@ aruco.drawMarker(aruco_dict, id, tag_size, tag, 1)
 tag_name = "arucoMarkers/" + str(aruco_type) + "_" + str(id) + ".png"
 cv2.imwrite(tag_name, tag)
 # image = "./Picture/100.png"
-params = cv2.aruco.DetectorParameters_create()
-corners, ids, rejected = aruco.detectMarkers(image, aruco_dict, params)
-# print(aruco.detectMarkers(image[1], aruco_dict, params))
-# cv2.imshow("ArUCo Tag", tag)
+# params = cv2.aruco.DetectorParameters_create
+# # corners, ids, rejected = aruco.detectMarkers(cam.capture_array("main"), aruco_dict, params)
+# print(aruco.detectMarkers(image, aruco_dict, params))
+
+#cv2.imshow("ArUCo Tag", tag)
 
 #cv2.waitKey(0)
 
