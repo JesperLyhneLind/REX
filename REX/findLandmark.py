@@ -17,7 +17,7 @@ except ImportError:
     exit(-1)
 
 
-#print("OpenCV version = " + cv2.__version__)
+print("OpenCV version = " + cv2.__version__)
 
 # Open a camera device for capturing
 imageSize = (1280, 720)
