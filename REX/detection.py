@@ -1,20 +1,21 @@
 import numpy as np
 import cv2, PIL
 from cv2 import aruco
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-import pandas as pd
+#import matplotlib.pyplot as plt
+#import matplotlib as mpl
+#import pandas as pd
 
 
-aruco_type = "DICT_6X6_250"
-id = 1
+aruco_type = aruco.DICT_6X6_250
+id = 3
 aruco_dict = aruco.Dictionary_get(aruco_type)
 
 print("ArUCo type '{}' with ID '{}".format(aruco_type, id))
-tag_size = 1000
+tag_size = 600
 tag = np.zeros((tag_size, tag_size, 1), dtype="uint8")
+aruco.drawMarker(aruco_dict, id, tag_size, tag, 1)
 
-tag_name = "arucoMarkers/" + aruco_type + "_" + str(id) + ".png"
+tag_name = "arucoMarkers/" + str(aruco_type) + "_" + str(id) + ".png"
 cv2.imwrite(tag_name, tag)
 cv2.imshow("ArUCo Tag", tag)
 
