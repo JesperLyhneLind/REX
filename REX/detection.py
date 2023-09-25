@@ -71,7 +71,10 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     rvecs, tvecs, objPoints = aruco.estimatePoseSingleMarkers(corners, 145, camMatrix, None, None)
     #print("tvecs: ", tvecs)
 
-    angle = np.arccos(np.dot(np.divide(tvecs, np.linalg.norm(tvecs)), np.array([0, 0, 1])))
+    z_vector = np.array([0, 0, 1])
+    norm_tvecs = np.linalg.norm(tvecs)
+    dot = np.dot(tvecs / norm_tvecs)
+    angle = np.arccos(dot, z_vector)
     print("angle: ", angle)
 
 
