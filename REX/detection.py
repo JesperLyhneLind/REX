@@ -112,11 +112,14 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         print("angle: ", angle)
         print("tvec norm", np.linalg.norm(tvecs))
         angle_sign = np.sign(tvecs[0]) # 1 is right, -1 is left
-    
-        if angle_sign == -1:
+        
+        print("angle sign: ", angle_sign)
+
+
+        if angle_sign[0] == -1:
             turn(Direction.Left, angle)
             driveM((dist - 500) / 100)
-        elif angle_sign == 1:
+        elif angle_sign[0] == 1:
             turn(Direction.Right, angle)
             driveM((dist - 500) / 100)
         else:
