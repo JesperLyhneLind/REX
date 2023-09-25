@@ -114,6 +114,9 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         angle_sign = np.sign(tvecs[0]) # 1 is right, -1 is left
         
         print("angle sign: ", angle_sign)
+        print("angle sign[0]: ", angle_sign[0])
+        print("t_vecs: ", tvecs)
+        print("t_vecs[0]: ", tvecs[0])
 
 
         if angle_sign[0] == -1:
