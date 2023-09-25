@@ -73,8 +73,8 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     print("tvecs: ", tvecs)
 
     z_vector = np.array([0, 0, 1])
-    
-    if not tvecs == None:
+
+    if not tvecs.any() == None:
         norm_tvecs = np.linalg.norm(tvecs)
         dot = np.dot((tvecs / norm_tvecs), z_vector)
         angle = np.arccos(dot)
