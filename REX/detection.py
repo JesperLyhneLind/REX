@@ -46,31 +46,34 @@ cv2.moveWindow(WIN_RF, 100, 100)
 
 # Defining the ArUCo types.
 aruco_type = aruco.DICT_6X6_250
-id = 2
+#id = 2
 aruco_dict = aruco.Dictionary_get(aruco_type)
 
-print("ArUCo type '{}' with ID '{}".format(aruco_type, id))
-tag_size = 600
-tag = np.zeros((tag_size, tag_size, 1), dtype="uint8")
-aruco.drawMarker(aruco_dict, id, tag_size, tag, 1)
+#print("ArUCo type '{}' with ID '{}".format(aruco_type, id))
+#tag_size = 600
+#tag = np.zeros((tag_size, tag_size, 1), dtype="uint8")
+#aruco.drawMarker(aruco_dict, id, tag_size, tag, 1)
 
 tag_name = "arucoMarkers/" + str(aruco_type) + "_" + str(id) + ".png"
 cv2.imwrite(tag_name, tag)
 
-image = cam.capture_array("main")
-params = cv2.aruco.DetectorParameters_create
-corners, ids, rejected_corners = aruco.detectMarkers(image, aruco_dict, parameters=params)
-print(aruco.detectMarkers(image, aruco_dict, params))
-
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
     retval, frameReference = cam.read() # Read frame
+    text = input('')
 
     if not retval: # Error
-        print("Error!!!!")
+        print("Error!")
         exit(-1)
 
     # Show frames
     cv2.imshow(WIN_RF, frameReference)
+
+    params = cv2.aruco.DetectorParameters_create
+    corners, ids, rejected_corners = aruco.detectMarkers(frameReference, aruco_dict, parameters=params)
+    print(aruco.detectMarkers(frameReference, aruco_dict, params))
+
+    if text == 'q':
+        break
 
 #params = cv2.aruco.DetectorParameters_create
 #corners, ids, rejected = aruco.detectMarkers(cam.capture_array("main"), aruco_dict, params)
