@@ -14,7 +14,7 @@ except ImportError:
     print("Camera.py: picamera2 module not available")
     exit(-1)
 
-def gstreamer_pipeline(capture_width=1024, capture_height=720, framerate=30):
+def gstreamer_pipeline(capture_width=900, capture_height=500, framerate=50):
     """Utility function for setting parameters for the gstreamer camera pipeline"""
     return (
         "libcamerasrc !"
@@ -64,10 +64,9 @@ aruco.drawMarker(aruco_dict, id, tag_size, tag, 1)
 
 tag_name = "arucoMarkers/" + str(aruco_type) + "_" + str(id) + ".png"
 cv2.imwrite(tag_name, tag)
-# image = "./Picture/100.png"
-# params = cv2.aruco.DetectorParameters_create
-# # corners, ids, rejected = aruco.detectMarkers(cam.capture_array("main"), aruco_dict, params)
-# print(aruco.detectMarkers(image, aruco_dict, params))
+#params = cv2.aruco.DetectorParameters_create
+#corners, ids, rejected = aruco.detectMarkers(cam.capture_array("main"), aruco_dict, params)
+#print(aruco.detectMarkers(image, aruco_dict, params))
 
 #cv2.imshow("ArUCo Tag", tag)
 
