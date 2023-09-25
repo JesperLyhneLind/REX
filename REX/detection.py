@@ -73,9 +73,10 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     #print("ids: ", ids)
     #print("corners: ", corners)
 
-    camMatrix = np.array([42.83075, 0, 612], #c_x = captureWidth / 2 and c_y = captureHeight / 2
-                         [0, 42.83075, 360],
-                         [0, 0, 1])
+    # c_x = captureWidth / 2 and c_y = captureHeight / 2
+    camMatrix = np.matrix([[42.83075, 0, 612],
+                           [0, 42.83075, 360],
+                           [0, 0, 1]])
 
     rvecs, tvecs, objPoints = aruco.estimatePoseSingleMarkers(corners, 145, camMatrix, None, None)
     print("tvecs: ", tvecs)
