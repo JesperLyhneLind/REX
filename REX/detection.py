@@ -49,6 +49,7 @@ aruco_dict = aruco.Dictionary_get(aruco_type)
 
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
     retval, frameReference = cam.read() # Read frame
+    
 
     if not retval: # Error
         print("Error!")
@@ -72,14 +73,16 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     print("tvecs: ", tvecs)
 
     z_vector = np.array([0, 0, 1])
-    norm_tvecs = np.linalg.norm(tvecs)
-    dot = np.dot((tvecs / norm_tvecs), z_vector)
-    angle = np.arccos(dot)
-    print("angle: ", angle)
-    print("tvec norm", np.linalg.norm(tvecs))
-    angle_sign = np.sign(angle)
     
+    if not tvecs == None:
+        norm_tvecs = np.linalg.norm(tvecs)
+        dot = np.dot((tvecs / norm_tvecs), z_vector)
+        angle = np.arccos(dot)
+        print("angle: ", angle)
+        print("tvec norm", np.linalg.norm(tvecs))
+        angle_sign = np.sign(tvecs[0])
 
+    
 
 
 
