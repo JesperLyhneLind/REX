@@ -42,7 +42,7 @@ WIN_RF = "Example 1"
 # cv2.moveWindow(WIN_RF, 100, 100)
 
 arucoDict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_6X6_50)
-arucoParams = cv2.aruco.DetectorParameters_create()
+arucoParams = cv2.arucox.DetectorParameters_create()
 (corners, ids, rejected) = cv2.aruco.detectMarkers(image, arucoDict,
 	parameters=arucoParams)
 
