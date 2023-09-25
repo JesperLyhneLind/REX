@@ -71,8 +71,8 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     params = cv2.aruco.DetectorParameters_create()
     corners, ids, rejected_corners = aruco.detectMarkers(frameReference, aruco_dict, parameters=params)
     #print(aruco.detectMarkers(frameReference, aruco_dict, params))
-    print("ids:" + ids)
-    print("corners:" + corners)
+    print("ids: ", ids)
+    print("corners: ", corners)
 
     #if text == 'q':
     #    break
