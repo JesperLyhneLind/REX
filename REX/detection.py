@@ -14,19 +14,28 @@ except ImportError:
     print("Camera.py: picamera2 module not available")
     exit(-1)
 
-# Open a camera device for capturing
-imageSize = (1280, 720)
-FPS = 30
-cam = picamera2.Picamera2()
-frame_duration_limit = int(1/FPS * 1000000) # Microseconds
-# Change configuration to set resolution, framerate
-picam2_config = cam.create_video_configuration({"size": imageSize, "format": 'RGB888'},
-                                                            controls={"FrameDurationLimits": (frame_duration_limit, frame_duration_limit)},
-                                                            queue=False)
-cam.configure(picam2_config) # Not really necessary
-cam.start(show_preview=False)
+def gstreamer_pipeline(capture_width=1024, capture_height=720, framerate=30):
+    """Utility function for setting parameters for the gstreamer camera pipeline"""
+    return (
+        "libcamerasrc !"
+        "videobox autocrop=true !"
+        "video/x-raw, width=(int)%d, height=(int)%d, framerate=(fraction)%d/1 ! "
+        "videoconvert ! "
+        "appsink"
+        % (
+            capture_width,
+            capture_height,
+            framerate,
+        )
+    )
 
-# print(cam.camera_configuration()) # Print the camera configuration in use
+# Open a camera device for capturing
+cam = cv2.VideoCapture(gstreamer_pipeline(), apiPreference=cv2.CAP_GSTREAMER)
+
+
+if not cam.isOpened(): # Error
+    print("Could not open camera")
+    exit(-1)
 
 time.sleep(1)  # wait for camera to setup
 
