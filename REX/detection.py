@@ -59,7 +59,7 @@ aruco_dict = aruco.Dictionary_get(aruco_type)
 
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
     retval, frameReference = cam.read() # Read frame
-    text = input('')
+    #text = input('')
 
     if not retval: # Error
         print("Error!")
@@ -74,8 +74,8 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     print("ids:" + ids)
     print("corners:" + corners)
 
-    if text == 'q':
-        break
+    #if text == 'q':
+    #    break
 
 
 #cv2.imshow("ArUCo Tag", tag)
