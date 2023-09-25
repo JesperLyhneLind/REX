@@ -84,9 +84,9 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
 
 #markerlength = 14,5 cm
 #distcoeff = none
-    text = input('')    
-    if text == 'q':
-        break
+  #  text = input('')    
+ #   if text == 'q':
+#        break
 
 #cv2.imshow("ArUCo Tag", tag)
 
