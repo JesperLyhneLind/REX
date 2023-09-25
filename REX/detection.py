@@ -115,15 +115,15 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         
         print("angle sign: ", angle_sign)
         print("angle sign[0]: ", angle_sign[0])
-        print("angle sign[0][0][0]: ", angle_sign[0][0][0])
+        print("angle sign[0][0]: ", angle_sign[0][0])
         print("t_vecs: ", tvecs)
         print("t_vecs[0]: ", tvecs[0])
 
 
-        if angle_sign[0][0][0] == -1:
+        if angle_sign[0] == -1:
             turn(Direction.Left, angle)
             driveM((dist - 500) / 100)
-        elif angle_sign[0][0][0] == 1:
+        elif angle_sign[0] == 1:
             turn(Direction.Right, angle)
             driveM((dist - 500) / 100)
         else:
