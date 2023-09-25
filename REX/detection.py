@@ -14,7 +14,7 @@ except ImportError:
     print("Camera.py: picamera2 module not available")
     exit(-1)
 
-def gstreamer_pipeline(capture_width=900, capture_height=500, framerate=50):
+def gstreamer_pipeline(capture_width=900, capture_height=500, framerate=30):
     """Utility function for setting parameters for the gstreamer camera pipeline"""
     return (
         "libcamerasrc !"
@@ -47,12 +47,13 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     retval, frameReference = cam.read() # Read frame
 
     if not retval: # Error
-        print("):< ):< ):< Error >:( >:( >:(")
+        print("Error!!!!")
         exit(-1)
 
     # Show frames
     cv2.imshow(WIN_RF, frameReference)
 
+# Defining the ArUCo types.
 aruco_type = aruco.DICT_6X6_250
 id = 3
 aruco_dict = aruco.Dictionary_get(aruco_type)
