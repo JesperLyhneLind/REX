@@ -59,7 +59,6 @@ aruco_dict = aruco.Dictionary_get(aruco_type)
 
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
     retval, frameReference = cam.read() # Read frame
-    #text = input('')
 
     if not retval: # Error
         print("Error!")
@@ -71,12 +70,22 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     params = cv2.aruco.DetectorParameters_create()
     corners, ids, rejected_corners = aruco.detectMarkers(frameReference, aruco_dict, parameters=params)
     #print(aruco.detectMarkers(frameReference, aruco_dict, params))
-    print("ids: ", ids)
-    print("corners: ", corners)
+    #print("ids: ", ids)
+    #print("corners: ", corners)
 
-    #if text == 'q':
-    #    break
+    camMatrix = np.array([42.83075, 0, 612], #c_x = captureWidth / 2 and c_y = captureHeight / 2
+                         [0, 42.83075, 360],
+                         [0, 0, 1])
 
+    rvecs, tvecs, objPoints = aruco.estimatePoseSingleMarkers(corners, 145, camMatrix, None, None)
+    print("tvecs: ", tvecs)
+
+
+#markerlength = 14,5 cm
+#distcoeff = none
+    text = input('')    
+    if text == 'q':
+        break
 
 #cv2.imshow("ArUCo Tag", tag)
 
