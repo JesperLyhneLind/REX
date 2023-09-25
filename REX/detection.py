@@ -69,7 +69,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
                            [0, 0, 1]])
 
     rvecs, tvecs, objPoints = aruco.estimatePoseSingleMarkers(corners, 145, camMatrix, None, None)
-    #print("tvecs: ", tvecs)
+    print("tvecs: ", tvecs)
 
     z_vector = np.array([0, 0, 1])
     norm_tvecs = np.linalg.norm(tvecs)
