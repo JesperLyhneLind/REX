@@ -76,8 +76,9 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     dot = np.dot((tvecs / norm_tvecs), z_vector)
     angle = np.arccos(dot)
     print("angle: ", angle)
-
-
+    print("tvec norm", np.linalg.norm(tvecs))
+    angle_sign = np.sign(angle)
+    
 
 
 
