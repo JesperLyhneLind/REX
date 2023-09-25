@@ -43,19 +43,10 @@ WIN_RF = "Ottos camera"
 cv2.namedWindow(WIN_RF)
 cv2.moveWindow(WIN_RF, 100, 100)
 
-while cv2.waitKey(4) == -1: # Wait for a key pressed event
-    retval, frameReference = cam.read() # Read frame
-
-    if not retval: # Error
-        print("Error!!!!")
-        exit(-1)
-
-    # Show frames
-    cv2.imshow(WIN_RF, frameReference)
 
 # Defining the ArUCo types.
 aruco_type = aruco.DICT_6X6_250
-id = 3
+id = 2
 aruco_dict = aruco.Dictionary_get(aruco_type)
 
 print("ArUCo type '{}' with ID '{}".format(aruco_type, id))
@@ -71,6 +62,15 @@ params = cv2.aruco.DetectorParameters_create
 corners, ids, rejected_corners = aruco.detectMarkers(image, aruco_dict, parameters=params)
 print(aruco.detectMarkers(image, aruco_dict, params))
 
+while cv2.waitKey(4) == -1: # Wait for a key pressed event
+    retval, frameReference = cam.read() # Read frame
+
+    if not retval: # Error
+        print("Error!!!!")
+        exit(-1)
+
+    # Show frames
+    cv2.imshow(WIN_RF, frameReference)
 
 #params = cv2.aruco.DetectorParameters_create
 #corners, ids, rejected = aruco.detectMarkers(cam.capture_array("main"), aruco_dict, params)
