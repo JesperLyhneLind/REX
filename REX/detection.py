@@ -137,6 +137,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
 
     else:
         turn(Direction.Right, 45)
+        sleep(1)
         # while tvecs is None:
         #     turn(Direction.Right, 45)
         #     rvecs, tvecs, objPoints = aruco.estimatePoseSingleMarkers(corners, 145, camMatrix, None, None)
