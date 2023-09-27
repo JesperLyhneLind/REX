@@ -17,7 +17,7 @@ except ImportError:
 
 # Open a camera device for capturing
 imageSize = (1280, 720)
-FPS = 30
+FPS = 15
 cam = picamera2.Picamera2()
 frame_duration_limit = int(1/FPS * 1000000) # Microseconds
 # Change configuration to set resolution, framerate
