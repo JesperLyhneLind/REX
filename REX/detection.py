@@ -31,7 +31,7 @@ print(cam.camera_configuration()) # Print the camera configuration in use
 
 time.sleep(1)  # wait for camera to setup
 
-
+#dd
 WIN_RF = "Ottos camera"
 cv2.namedWindow(WIN_RF)
 cv2.moveWindow(WIN_RF, 100, 100)
