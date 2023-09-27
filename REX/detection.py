@@ -78,13 +78,14 @@ def driveM(meters):
     print(arlo.stop())   
     sleep(0.041)  
 
-def go_to_box(angle_sign, angle, dist):
+def go_to_box(angle_sign, angle, dist, ids):
         print("going to box")
+        print("id: ", ids)
         print("dist: ", dist)
         print("actual dist:", (dist - 500) / 100)
         if angle_sign == -1:
             print("angle_sign == -1")
-            turn(Direction.Left, angle)
+            turn(Direction.Left, angle) 
             driveM((dist - 500) / 100) #drive to box with 50cm to spare
         elif angle_sign == 1:
             print("angle_sign == 1")
@@ -105,11 +106,6 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
 
     params = aruco.DetectorParameters_create()
     corners, ids, rejected_corners = aruco.detectMarkers(frameReference, aruco_dict, parameters=params)
-    #print(aruco.detectMarkers(frameReference, aruco_dict, params))
-    #print("ids: ", ids)
-    #print("corners: ", corners)
-
-    # c_x = captureWidth / 2 and c_y = captureHeight / 2
     camMatrix = np.matrix([[42.83075, 0, 612],
                            [0, 42.83075, 360],
                            [0, 0, 1]])
@@ -125,7 +121,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         angle = np.degrees(np.arccos(dot))
         # print("angle: ", angle)
         # print("tvec norm", np.linalg.norm(tvecs))
-        angle_sign = np.sign(tvecs[0]) # 1 is right, -1 is left
+        angle_sign = np.sign(int(tvecs[0])) # 1 is right, -1 is left
         
         # print("angle sign: ", angle_sign)
         # print("angle sign[0]: ", angle_sign[0])
@@ -133,28 +129,12 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         # print("t_vecs: ", tvecs)
         # print("t_vecs[0]: ", tvecs[0])
 
-        go_to_box(int(angle_sign[0][0]), angle, dist)
+        go_to_box(int(angle_sign[0][0]), angle, dist, ids)
 
     else:
         turn(Direction.Right, 45)
-        sleep(1)
-        # while tvecs is None:
-        #     turn(Direction.Right, 45)
-        #     rvecs, tvecs, objPoints = aruco.estimatePoseSingleMarkers(corners, 145, camMatrix, None, None)
-        #     sleep(0.5)
-            
-            #     go_to_box(angle_sign, angle, dist)
-
-
-
-
-
-
-    
-
-
-
-
+        sleep(0.65)
+ 
 #print("ArUCo type '{}' with ID '{}".format(aruco_type, id))
 #tag_size = 600
 #tag = np.zeros((tag_size, tag_size, 1), dtype="uint8")
