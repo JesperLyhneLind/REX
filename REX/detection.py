@@ -5,8 +5,9 @@ import time
 from time import sleep
 import robot
 from enum import Enum
-
+import statemachine
 arlo = robot.Robot()
+state_machine = statemachine.StateMachine()
 
 try:
     import picamera2
@@ -134,6 +135,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     else:
         while tvecs is None:
             turn(Direction.Right, 45)
+            rvecs, tvecs, objPoints = aruco.estimatePoseSingleMarkers(corners, 145, camMatrix, None, None)
             sleep(0.5)
             # if tvecs is not None:
             #     go_to_box(angle_sign, angle, dist)
