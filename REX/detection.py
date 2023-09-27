@@ -109,26 +109,17 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
                            [0, 0, 1]])
 
     rvecs, tvecs, objPoints = aruco.estimatePoseSingleMarkers(corners, 145, camMatrix, None, None)
-    print("tvecs: ", tvecs)
-
     z_vector = np.array([0, 0, 1])
 
     if tvecs is not None:
         norms = []
         for i in range(len(tvecs)):
             norms.append(np.linalg.norm(tvecs[i]))
-        vec = tvecs[norms.index(max(norms))]
-        print("vec: ", vec[0])
-        dist = np.linalg.norm(tvecs[0]) #distance to the box
-        print ("dist: ", dist)
-        dot = np.dot((tvecs / dist), z_vector)
+        vec = (tvecs[norms.index(max(norms))])[0] #choose the closest vector
+        dist = np.linalg.norm(vec) #distance to the box
+        dot = np.dot((vec / dist), z_vector)
         angle = np.degrees(np.arccos(dot))
-        print("angle: ", angle)
-        angle_sign = np.sign(tvecs) # 1 is right, -1 is left
-        print("angle sign: ", angle_sign)
-        # print("t_vecs: ", tvecs)
-        # print("t_vecs[0]: ", tvecs[0])
-
+        angle_sign = np.sign(vec) # 1 is right, -1 is left
         go_to_box(angle_sign[0], angle, dist, ids)
 
     else:
