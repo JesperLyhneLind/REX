@@ -85,12 +85,12 @@ def go_to_box(angle_sign, angle, dist, ids):
         print("actual dist:", (dist - 50) / 10)
         if angle_sign == -1:
             turn(Direction.Left, angle) 
-            driveM((dist - 50) / 100) #drive to box with 50 mm to spare
+            driveM((dist - 50) / 10) #drive to box with 50 cm to spare
         elif angle_sign == 1:
             turn(Direction.Right, angle)
-            driveM((dist - 50) / 100)
+            driveM((dist - 50) / 10)
         else:
-            driveM((dist - 50) / 100)
+            driveM((dist - 50) / 10)
 
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
     retval, frameReference = cam.read() # Read frame
@@ -117,8 +117,9 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         tvec = (tvecs[0])[0]
         print("first tvec", tvec)
         dist = np.linalg.norm(tvec) #distance to the box
-        dot = np.dot((tvecs / dist), z_vector)
+        dot = np.dot((tvec / dist), z_vector)
         angle = np.degrees(np.arccos(dot))
+        print("angle: ",angle)
         angle_sign = np.sign(tvec) # 1 is right, -1 is left
         print("angle sign: ", angle_sign)
         # print("t_vecs: ", tvecs)
