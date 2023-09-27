@@ -129,7 +129,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
 
     else:
         turn(Direction.Right, 45)
-        sleep(0.65)
+        sleep(1.5)
  
 #print("ArUCo type '{}' with ID '{}".format(aruco_type, id))
 #tag_size = 600
