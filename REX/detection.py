@@ -82,8 +82,7 @@ def go_to_box(angle_sign, angle, dist, ids):
         print("going to box")
         print("id: ", ids)
         print("dist: ", dist)
-        print("actual dist: ", (dist - 50) / 100)
-        print("angle: ", angle)
+        print("actual dist:", (dist - 50) / 10)
         if angle_sign == -1:
             turn(Direction.Left, angle) 
             driveM((dist - 50) / 100) #drive to box with 50 cm to spare
@@ -116,18 +115,18 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         norms = []
         for i in range(len(tvecs)):
             norms.append(np.linalg.norm(tvecs[i]))
-        max_vec_idx = norms.index(max(norms))
-        vec = (tvecs[max_vec_idx])[0] #choose the closest vector
+        maxvecidx = norms.index(max(norms))
+        vec = (tvecs[norms.index(max(norms))])[0] #choose the closest vector
         dist = np.linalg.norm(vec) #distance to the box
         dot = np.dot((vec / dist), z_vector)
         angle = np.degrees(np.arccos(dot))
         angle_sign = np.sign(vec) # 1 is right, -1 is left
-        go_to_box(angle_sign[0], angle, dist, id[max_vec_idx])
+        go_to_box(angle_sign[0], angle, dist, id[maxvecidx])
 
     else:
         turn(Direction.Right, 45)
         sleep(1.5)
-        print("ik sove nu")
+ 
 #print("ArUCo type '{}' with ID '{}".format(aruco_type, id))
 #tag_size = 600
 #tag = np.zeros((tag_size, tag_size, 1), dtype="uint8")
