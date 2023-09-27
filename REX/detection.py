@@ -85,12 +85,12 @@ def go_to_box(angle_sign, angle, dist, ids):
         print("actual dist:", (dist - 50) / 10)
         if angle_sign == -1:
             turn(Direction.Left, angle) 
-            driveM((dist - 50) / 10) #drive to box with 50cm to spare
+            driveM((dist - 50) / 100) #drive to box with 50 mm to spare
         elif angle_sign == 1:
             turn(Direction.Right, angle)
-            driveM((dist - 50) / 10)
+            driveM((dist - 50) / 100)
         else:
-            driveM((dist - 50) / 10)
+            driveM((dist - 50) / 100)
 
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
     retval, frameReference = cam.read() # Read frame
@@ -104,8 +104,8 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
 
     params = aruco.DetectorParameters_create()
     corners, ids, rejected_corners = aruco.detectMarkers(frameReference, aruco_dict, parameters=params)
-    camMatrix = np.matrix([[42.83075, 0, 612],
-                           [0, 42.83075, 360],
+    camMatrix = np.matrix([[42.83075, 0, 161.925], #612px
+                           [0, 42.83075, 95.25],#360px
                            [0, 0, 1]])
 
     rvecs, tvecs, objPoints = aruco.estimatePoseSingleMarkers(corners, 145, camMatrix, None, None)
