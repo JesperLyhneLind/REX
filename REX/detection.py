@@ -122,21 +122,20 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         dist = np.linalg.norm(tvecs) #distance to the box
         dot = np.dot((tvecs / dist), z_vector)
         angle = np.degrees(np.arccos(dot))
-        print("angle: ", angle)
-        print("tvec norm", np.linalg.norm(tvecs))
+        # print("angle: ", angle)
+        # print("tvec norm", np.linalg.norm(tvecs))
         angle_sign = np.sign(tvecs[0]) # 1 is right, -1 is left
         
-        print("angle sign: ", angle_sign)
-        print("angle sign[0]: ", angle_sign[0])
-        print("angle sign[0][0]: ", angle_sign[0][0])
-        print("t_vecs: ", tvecs)
-        print("t_vecs[0]: ", tvecs[0])
+        # print("angle sign: ", angle_sign)
+        # print("angle sign[0]: ", angle_sign[0])
+        # print("angle sign[0][0]: ", angle_sign[0][0])
+        # print("t_vecs: ", tvecs)
+        # print("t_vecs[0]: ", tvecs[0])
 
         go_to_box(int(angle_sign[0][0]), angle, dist)
 
     else:
         turn(Direction.Right, 45)
-        sleep(0.5)
         # while tvecs is None:
         #     turn(Direction.Right, 45)
         #     rvecs, tvecs, objPoints = aruco.estimatePoseSingleMarkers(corners, 145, camMatrix, None, None)
