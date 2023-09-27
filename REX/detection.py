@@ -104,8 +104,8 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
 
     params = aruco.DetectorParameters_create()
     corners, ids, rejected_corners = aruco.detectMarkers(frameReference, aruco_dict, parameters=params)
-    camMatrix = np.matrix([[42.83075, 0, 161.925], #612px
-                           [0, 42.83075, 95.25],#360px
+    camMatrix = np.matrix([[161, 0, 612], #612px
+                           [0, 161, 360],#360px
                            [0, 0, 1]])
 
     rvecs, tvecs, objPoints = aruco.estimatePoseSingleMarkers(corners, 145, camMatrix, None, None)
