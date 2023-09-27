@@ -88,17 +88,18 @@ def go_to_box(angle_sign, angle, dist, ids):
             print(arlo.stop()) 
 
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
-    retval, frameReference = cam.read() # Read frame
+    # retval, frameReference = cam.read() # Read frame
+    image = cam.capture_array("main")
 
-    if not retval: # Error
+    if not image: # Error
         print("Error!")
         exit(-1)
 
     # Show frames
-    cv2.imshow(WIN_RF, frameReference)
+    cv2.imshow(WIN_RF, image)
 
     params = aruco.DetectorParameters_create()
-    corners, ids, rejected_corners = aruco.detectMarkers(frameReference, aruco_dict, parameters=params)
+    corners, ids, rejected_corners = aruco.detectMarkers(image, aruco_dict, parameters=params)
     camMatrix = np.matrix([[459.3346823, 0, 612], # 612 px = 161.925 mm
                            [0, 459.3346823, 360],   # 360 px = 95.25 mm
                            [0, 0, 1]])
