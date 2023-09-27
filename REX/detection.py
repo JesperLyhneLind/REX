@@ -131,8 +131,8 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         go_to_box(angle_sign[0], angle, dist, ids[maxvecidx])
 
     else:
-        turn(Direction.Right, 45)
-        sleep(1.5)
+        turn(Direction.Right, 40)
+        sleep(3)
  
 #print("ArUCo type '{}' with ID '{}".format(aruco_type, id))
 #tag_size = 600
