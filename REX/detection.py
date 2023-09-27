@@ -79,10 +79,14 @@ def driveM(meters):
     sleep(0.041)  
 
 def go_to_box(angle_sign, angle, dist):
+        print("going to box")
+        print("actual dist:", (dist - 500) / 100)
         if angle_sign == -1:
+            print("angle_sign == -1")
             turn(Direction.Left, angle)
             driveM((dist - 500) / 100) #drive to box with 50cm to spare
         elif angle_sign == 1:
+            print("angle_sign == 1")
             turn(Direction.Right, angle)
             driveM((dist - 500) / 100)
         else:
