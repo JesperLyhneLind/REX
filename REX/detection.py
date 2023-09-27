@@ -132,11 +132,13 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         go_to_box(angle_sign, angle, dist)
         
     else:
-        while tvecs is None:
-            turn(Direction.Right, 45)
-            rvecs, tvecs, objPoints = aruco.estimatePoseSingleMarkers(corners, 145, camMatrix, None, None)
-            sleep(0.5)
-            # if tvecs is not None:
+        turn(Direction.Right, 45)
+        sleep(0.5)
+        # while tvecs is None:
+        #     turn(Direction.Right, 45)
+        #     rvecs, tvecs, objPoints = aruco.estimatePoseSingleMarkers(corners, 145, camMatrix, None, None)
+        #     sleep(0.5)
+            
             #     go_to_box(angle_sign, angle, dist)
 
 
