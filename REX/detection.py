@@ -115,8 +115,8 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         norms = []
         for i in range(len(tvecs)):
             norms.append(np.linalg.norm(tvecs[i]))
-        maxvecidx = norms.index(max(norms))
-        vec = (tvecs[norms.index(max(norms))])[0] #choose the closest vector
+        maxvecidx = int(norms.index(min(norms)))
+        vec = (tvecs[norms.index(min(norms))])[0] #choose the closest vector
         dist = np.linalg.norm(vec) #distance to the box
         dot = np.dot((vec / dist), z_vector)
         angle = np.degrees(np.arccos(dot))
@@ -126,6 +126,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         print("maxvecidx:",maxvecidx)
         print("vec:",vec)
         print("angle:", angle)
+        print("ids", ids)
         go_to_box(angle_sign[0], angle, dist, id[maxvecidx])
 
     else:
