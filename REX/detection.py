@@ -128,9 +128,9 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
             driveM((dist - 500) / 100)
         else:
             driveM((dist - 500) / 100)
-    else:
-        while tvecs is None:
-            turn(Direction.Right, 5)
+    # else:
+    #     while tvecs is None:
+    #         turn(Direction.Right, 5)
 
 
 
