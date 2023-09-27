@@ -78,6 +78,16 @@ def driveM(meters):
     print(arlo.stop())   
     sleep(0.041)  
 
+def go_to_box(angle_sign, angle, dist):
+        if angle_sign[0] == -1:
+            turn(Direction.Left, angle)
+            driveM((dist - 500) / 100) #drive to box with 50cm to spare
+        elif angle_sign[0] == 1:
+            turn(Direction.Right, angle)
+            driveM((dist - 500) / 100)
+        else:
+            driveM((dist - 500) / 100)
+
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
     retval, frameReference = cam.read() # Read frame
     9
@@ -119,18 +129,14 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         print("t_vecs: ", tvecs)
         print("t_vecs[0]: ", tvecs[0])
 
-
-        if angle_sign[0] == -1:
-            turn(Direction.Left, angle)
-            driveM((dist - 500) / 100) #drive to box with 50cm to spare
-        elif angle_sign[0] == 1:
-            turn(Direction.Right, angle)
-            driveM((dist - 500) / 100)
-        else:
-            driveM((dist - 500) / 100)
+        go_to_box(angle_sign, angle, dist)
+        
     else:
         while tvecs is None:
-            turn(Direction.Right, 5)
+            turn(Direction.Right, 45)
+            sleep(0.5)
+            # if tvecs is not None:
+            #     go_to_box(angle_sign, angle, dist)
 
 
 
