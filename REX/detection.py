@@ -31,9 +31,6 @@ print(cam.camera_configuration()) # Print the camera configuration in use
 
 time.sleep(1)  # wait for camera to setup
 
-if not cam.isOpened(): # Error
-    print("Could not open camera")
-    exit(-1)
 
 WIN_RF = "Ottos camera"
 cv2.namedWindow(WIN_RF)
