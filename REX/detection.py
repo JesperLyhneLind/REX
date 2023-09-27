@@ -5,7 +5,7 @@ import time
 from time import sleep
 import robot
 from enum import Enum
-import statemachine
+# import statemachine
 arlo = robot.Robot()
 
 try:
