@@ -7,7 +7,6 @@ import robot
 from enum import Enum
 import statemachine
 arlo = robot.Robot()
-state_machine = statemachine.StateMachine()
 
 try:
     import picamera2

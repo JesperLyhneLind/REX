@@ -19,7 +19,7 @@ class Ostato(StateMachine):
     drive = State()
     turn = State()
     look = State()
-drive(while checking)
+# drive(while checking)
 # driveStraight
 # driveToTarget
 # sonarObstacleAvoidance
