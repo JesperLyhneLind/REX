@@ -80,6 +80,7 @@ def driveM(meters):
 
 def go_to_box(angle_sign, angle, dist):
         print("going to box")
+        print("dist: ", dist)
         print("actual dist:", (dist - 500) / 100)
         if angle_sign == -1:
             print("angle_sign == -1")
@@ -128,7 +129,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         
         # print("angle sign: ", angle_sign)
         # print("angle sign[0]: ", angle_sign[0])
-        # print("angle sign[0][0]: ", angle_sign[0][0])
+        print("angle sign[0][0]: ", int(angle_sign[0][0]))
         # print("t_vecs: ", tvecs)
         # print("t_vecs[0]: ", tvecs[0])
 
