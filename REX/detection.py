@@ -94,7 +94,6 @@ def go_to_box(angle_sign, angle, dist):
 
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
     retval, frameReference = cam.read() # Read frame
-    9
 
     if not retval: # Error
         print("Error!")
