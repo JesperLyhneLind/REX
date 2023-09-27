@@ -91,9 +91,10 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     # retval, frameReference = cam.read() # Read frame
     image = cam.capture_array("main")
 
-    if not image: # Error
-        print("Error!")
-        exit(-1)
+    # if not image: # Error
+        
+    #     print("Error!")
+    #     exit(-1)
 
     # Show frames
     cv2.imshow(WIN_RF, image)
