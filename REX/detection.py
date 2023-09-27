@@ -129,7 +129,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         print("t_vecs: ", tvecs)
         print("t_vecs[0]: ", tvecs[0])
 
-        go_to_box(angle_sign[0][0], angle, dist)
+        go_to_box(int(angle_sign[0][0]), angle, dist)
         
     else:
         turn(Direction.Right, 45)
