@@ -82,7 +82,7 @@ def go_to_box(angle_sign, angle, dist, ids):
         print("going to box")
         print("id: ", ids)
         print("dist: ", dist)
-        print("actual dist:", (dist - 50) / 100)
+        print("actual dist: ", (dist - 50) / 100)
         print("angle: ", angle)
         if angle_sign == -1:
             turn(Direction.Left, angle) 
@@ -127,7 +127,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     else:
         turn(Direction.Right, 45)
         sleep(1.5)
- 
+        print("ik sove nu")
 #print("ArUCo type '{}' with ID '{}".format(aruco_type, id))
 #tag_size = 600
 #tag = np.zeros((tag_size, tag_size, 1), dtype="uint8")
