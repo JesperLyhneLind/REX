@@ -115,10 +115,10 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
 
     if tvecs is not None:
         norms = []
-        print(len(tvecs))
         for i in range(len(tvecs)):
             norms.append(np.linalg.norm(tvecs[i]))
-        print("norms: ", norms)
+        vec = tvecs[norms.index(max(norms))]
+        print("vec:", vec)
         dist = np.linalg.norm(tvecs[0]) #distance to the box
         print ("dist: ", dist)
         dot = np.dot((tvecs / dist), z_vector)
