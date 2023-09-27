@@ -82,15 +82,15 @@ def go_to_box(angle_sign, angle, dist, ids):
         print("going to box")
         print("id: ", ids)
         print("dist: ", dist)
-        print("actual dist:", (dist - 500) / 100)
+        print("actual dist:", (dist - 50) / 10)
         if angle_sign == -1:
             turn(Direction.Left, angle) 
-            driveM((dist - 500) / 100) #drive to box with 50cm to spare
+            driveM((dist - 50) / 10) #drive to box with 50cm to spare
         elif angle_sign == 1:
             turn(Direction.Right, angle)
-            driveM((dist - 500) / 100)
+            driveM((dist - 50) / 10)
         else:
-            driveM((dist - 500) / 100)
+            driveM((dist - 50) / 10)
 
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
     retval, frameReference = cam.read() # Read frame
