@@ -86,11 +86,14 @@ def go_to_box(angle_sign, angle, dist, ids):
         if angle_sign == -1:
             turn(Direction.Left, angle) 
             driveM((dist - 50) / 100) #drive to box with 50 cm to spare
+            print(arlo.stop()) 
         elif angle_sign == 1:
             turn(Direction.Right, angle)
             driveM((dist - 50) / 100)
+            print(arlo.stop()) 
         else:
             driveM((dist - 50) / 100)
+            print(arlo.stop()) 
 
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
     retval, frameReference = cam.read() # Read frame
@@ -112,7 +115,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
     z_vector = np.array([0, 0, 1])
 
     if tvecs is not None:
-        print(arlo.stop()) 
+        # print(arlo.stop()) 
         norms = []
         for i in range(len(tvecs)):
             norms.append(np.linalg.norm(tvecs[i]))
@@ -131,8 +134,8 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         go_to_box(angle_sign[0], angle, dist, ids[maxvecidx])
 
     else:
-        turn(Direction.Right, 40)
-        sleep(3)
+        turn(Direction.Right, 30)
+        sleep(2)
  
 #print("ArUCo type '{}' with ID '{}".format(aruco_type, id))
 #tag_size = 600
