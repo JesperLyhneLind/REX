@@ -121,6 +121,11 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         dot = np.dot((vec / dist), z_vector)
         angle = np.degrees(np.arccos(dot))
         angle_sign = np.sign(vec) # 1 is right, -1 is left
+        print("tvecs:",tvecs)
+        print("norms:",norms)
+        print("maxvecidx:",maxvecidx)
+        print("vec:",vec)
+        print("angle:", angle)
         go_to_box(angle_sign[0], angle, dist, id[maxvecidx])
 
     else:
