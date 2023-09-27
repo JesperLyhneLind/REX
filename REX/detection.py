@@ -120,7 +120,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         dot = np.dot((tvecs / dist), z_vector)
         angle = np.degrees(np.arccos(dot))
         angle_sign = np.sign(tvec) # 1 is right, -1 is left
-        # print("angle sign[0][0]: ", int((angle_sign[0])[0]))
+        print("angle sign: ", angle_sign)
         # print("t_vecs: ", tvecs)
         # print("t_vecs[0]: ", tvecs[0])
 
