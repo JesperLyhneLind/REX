@@ -117,7 +117,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         norms = []
         print(len(tvecs))
         for i in range(len(tvecs)):
-            norms.insert(np.linalg.norm(tvecs[i]))
+            norms.append(np.linalg.norm(tvecs[i]))
         print("norms: ", norms)
         dist = np.linalg.norm(tvecs[0]) #distance to the box
         print ("dist: ", dist)
@@ -125,7 +125,7 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
         angle = np.degrees(np.arccos(dot))
         print("angle: ", angle)
         angle_sign = np.sign(tvecs) # 1 is right, -1 is left
-        print("angle sign: ", angle_sign
+        print("angle sign: ", angle_sign)
         # print("t_vecs: ", tvecs)
         # print("t_vecs[0]: ", tvecs[0])
 
