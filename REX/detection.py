@@ -80,7 +80,7 @@ def driveM(meters):
 
 while cv2.waitKey(4) == -1: # Wait for a key pressed event
     retval, frameReference = cam.read() # Read frame
-    
+    9
 
     if not retval: # Error
         print("Error!")
@@ -122,12 +122,17 @@ while cv2.waitKey(4) == -1: # Wait for a key pressed event
 
         if angle_sign[0] == -1:
             turn(Direction.Left, angle)
-            driveM((dist - 500) / 100)
+            driveM((dist - 500) / 100) #drive to box with 50cm to spare
         elif angle_sign[0] == 1:
             turn(Direction.Right, angle)
             driveM((dist - 500) / 100)
         else:
             driveM((dist - 500) / 100)
+    else:
+        while tvecs is None:
+            turn(Direction.Right, 5)
+
+
 
 
 
